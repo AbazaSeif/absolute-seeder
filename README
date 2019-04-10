@@ -1,14 +1,14 @@
 absolute-seeder
 ==============
 
-dash-seeder is a crawler for the Dash network, which exposes a list
+Absolute-seeder is a crawler for the Absolute network, which exposes a list
 of reliable nodes via a built-in DNS server.
 
 Features:
 * regularly revisits known nodes to check their availability
 * bans nodes after enough failures, or bad behaviour
-* accepts nodes down to v0.9.11.5 to request new IP addresses from,
-  but only reports good post-v0.9.11.5 nodes.
+* accepts nodes down to v0.12.2.3 to request new IP addresses from,
+  but only reports good post-v0.12.2.4 nodes (currently v0.12.2.5 only).
 * keeps statistics over (exponential) windows of 2 hours, 8 hours,
   1 day and 1 week, to base decisions on.
 * very low memory (a few tens of megabytes) and cpu requirements.
@@ -37,6 +37,25 @@ On the system vps.example.com, you can now run dnsseed:
 
 If you want the DNS server to report SOA records, please provide an
 e-mail address (with the @ part replaced by .) using -m.
+
+OPTIONS
+-------
+
+"-h <host>       Hostname of the DNS seed\n"
+"-n <ns>         Hostname of the nameserver\n"
+"-m <mbox>       E-Mail address reported in SOA records\n"
+"-s <seconds>    Number of seconds to sleep before printing stats (default 1)\n"
+"-t <threads>    Number of crawlers to run in parallel (default 96)\n"
+"-d <threads>    Number of DNS server threads (default 4)\n"
+"-p <port>       UDP port to listen on (default 53)\n"
+"-o <ip:port>    Tor proxy IP/Port\n"
+"-i <ip:port>    IPV4 SOCKS5 proxy IP/Port\n"
+"-k <ip:port>    IPV6 SOCKS5 proxy IP/Port\n"
+"-w f1,f2,...    Allow these flag combinations as filters\n"
+"--simplelog     Do not use advanced stats output, use simple log-like one instead\n"
+"--testnet       Use testnet\n"
+"--wipeban       Wipe list of banned nodes\n"
+"--wipeignore    Wipe list of ignored nodes\n"
 
 COMPILING
 ---------
